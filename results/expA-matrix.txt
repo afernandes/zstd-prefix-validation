@@ -1,0 +1,10 @@
+# managed .NET 11 (11.0.0), self-delta aleat¢rio seed 42, LDM on, windowLog auto
+MATRIX quality=3 sizeMi=32 pct=0.155 seconds=0.1
+MATRIX quality=3 sizeMi=96 pct=0.155 seconds=0.2
+MATRIX quality=3 sizeMi=160 pct=0.167 seconds=0.3
+MATRIX quality=15 sizeMi=32 pct=0.011 seconds=3.3
+MATRIX quality=15 sizeMi=96 pct=0.011 seconds=8.8
+MATRIX quality=15 sizeMi=160 pct=0.011 seconds=9.1
+MATRIX quality=19 sizeMi=32 pct=0.009 seconds=7.3
+MATRIX quality=19 sizeMi=96 pct=100.002 seconds=42.7
+MATRIX quality=19 sizeMi=160 pct=100.002 seconds=59.5

@@ -1,0 +1,8 @@
+RESULT dataset=linux-6.12.92.tar->linux-6.12.93.tar api=managed quality=3 hashLog=0 windowLog=31 baseBytes=1548513280 targetBytes=1548564480 deltaBytes=2581560 pct=0.1667 seconds=3.2 roundtrip=OK
+RESULT dataset=linux-6.12.92.tar->linux-6.12.93.tar api=managed quality=15 hashLog=0 windowLog=31 baseBytes=1548513280 targetBytes=1548564480 deltaBytes=2737868 pct=0.1768 seconds=20.2 roundtrip=OK
+# libzstd nativo 1.5.7
+RESULT dataset=linux-6.12.92.tar->linux-6.12.93.tar api=native quality=19 hashLog=28 windowLog=31 baseBytes=1548513280 targetBytes=1548564480 deltaBytes=1387510 pct=0.0896 seconds=536.1 roundtrip=OK
+# libzstd nativo 1.5.7
+RESULT dataset=linux-6.12.92.tar->linux-6.12.93.tar api=native quality=15 hashLog=28 windowLog=31 baseBytes=1548513280 targetBytes=1548564480 deltaBytes=2728695 pct=0.1762 seconds=267.8 roundtrip=OK
+RESULT dataset=linux-6.12.92.tar->linux-6.12.93.tar api=managed quality=19 hashLog=0 windowLog=31 baseBytes=1548513280 targetBytes=1548564480 deltaBytes=1573757 pct=0.1016 seconds=169.7 roundtrip=OK
+RESULT dataset=linux-6.12.92.tar->linux-6.12.93.tar api=managed quality=22 hashLog=0 windowLog=31 baseBytes=1548513280 targetBytes=1548564480 deltaBytes=1276452 pct=0.0824 seconds=384.4 roundtrip=OK

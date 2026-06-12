@@ -1,0 +1,4 @@
+# libzstd nativo 1.5.7
+RESULT dataset=linux-6.12.92.tar->linux-6.12.93.tar api=native quality=19 hashLog=0 ldm=1 windowLog=31 baseBytes=1548513280 targetBytes=1548564480 deltaBytes=1573757 pct=0.1016 seconds=173.3 roundtrip=OK
+# libzstd nativo 1.5.7
+RESULT dataset=linux-6.12.92.tar->linux-6.12.93.tar api=native quality=15 hashLog=0 ldm=1 windowLog=31 baseBytes=1548513280 targetBytes=1548564480 deltaBytes=2737868 pct=0.1768 seconds=12.3 roundtrip=OK

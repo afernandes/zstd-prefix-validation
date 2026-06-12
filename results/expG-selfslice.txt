@@ -1,0 +1,2 @@
+RESULT dataset=selfslice:linux-6.12.92.tar:160Mi api=managed quality=19 hashLog=0 ldm=1 windowLog=29 baseBytes=167772160 targetBytes=167772160 deltaBytes=32171 pct=0.0192 seconds=7.5 roundtrip=OK
+RESULT dataset=selfslice:linux-6.12.92.tar:96Mi api=managed quality=19 hashLog=0 ldm=1 windowLog=28 baseBytes=100663296 targetBytes=100663296 deltaBytes=16874 pct=0.0168 seconds=5.4 roundtrip=OK

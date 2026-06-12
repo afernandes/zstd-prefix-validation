@@ -1,0 +1,5 @@
+RESULT dataset=HML_PDVOMNI_4.5.21.0.tar->HML_PDVOMNI_4.5.22.0.tar api=managed quality=3 hashLog=0 windowLog=31 baseBytes=1345354752 targetBytes=1345342976 deltaBytes=1081033 pct=0.0804 seconds=2.9 roundtrip=OK
+RESULT dataset=HML_PDVOMNI_4.5.21.0.tar->HML_PDVOMNI_4.5.22.0.tar api=managed quality=15 hashLog=0 windowLog=31 baseBytes=1345354752 targetBytes=1345342976 deltaBytes=451358 pct=0.0335 seconds=14.1 roundtrip=OK
+# libzstd nativo 1.5.7
+RESULT dataset=HML_PDVOMNI_4.5.21.0.tar->HML_PDVOMNI_4.5.22.0.tar api=native quality=19 hashLog=28 windowLog=31 baseBytes=1345354752 targetBytes=1345342976 deltaBytes=202448 pct=0.0150 seconds=328.1 roundtrip=OK
+RESULT dataset=HML_PDVOMNI_4.5.21.0.tar->HML_PDVOMNI_4.5.22.0.tar api=managed quality=19 hashLog=0 windowLog=31 baseBytes=1345354752 targetBytes=1345342976 deltaBytes=228004 pct=0.0169 seconds=10.7 roundtrip=OK

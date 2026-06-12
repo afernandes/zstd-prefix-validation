@@ -1,0 +1,12 @@
+REVTAR in=data/linux-6.12.93.tar out=data/linux-6.12.93-rev.tar entries=92418 bytes=1548561408
+RESULT dataset=linux-6.12.92.tar->linux-6.12.93-rev.tar api=managed quality=19 hashLog=0 ldm=1 windowLog=31 baseBytes=1548513280 targetBytes=1548561408 deltaBytes=2335481 pct=0.1508 seconds=230.1 roundtrip=OK
+# libzstd nativo 1.5.7
+RESULT dataset=linux-6.12.92.tar->linux-6.12.93-rev.tar api=native quality=19 hashLog=28 ldm=1 windowLog=31 baseBytes=1548513280 targetBytes=1548561408 deltaBytes=1951729 pct=0.1260 seconds=507.6 roundtrip=OK
+RESULT dataset=linux-6.12.92.tar->linux-6.12.93-rev.tar api=managed quality=15 hashLog=0 ldm=1 windowLog=31 baseBytes=1548513280 targetBytes=1548561408 deltaBytes=2861594 pct=0.1848 seconds=16.0 roundtrip=OK
+RESULT dataset=linux-6.12.92.tar->linux-6.12.93-rev.tar api=managed quality=3 hashLog=0 ldm=1 windowLog=31 baseBytes=1548513280 targetBytes=1548561408 deltaBytes=3344855 pct=0.2160 seconds=2.2 roundtrip=OK
+# libzstd nativo 1.5.7
+RESULT dataset=linux-6.12.92.tar->linux-6.12.93.tar api=native quality=19 hashLog=0 ldm=2 windowLog=31 baseBytes=1548513280 targetBytes=1548564480 deltaBytes=144721459 pct=9.3455 seconds=474.9 roundtrip=OK
+# libzstd nativo 1.5.7
+RESULT dataset=linux-6.12.92.tar->linux-6.12.93.tar api=native quality=19 hashLog=28 ldm=2 windowLog=31 baseBytes=1548513280 targetBytes=1548564480 deltaBytes=1757071 pct=0.1135 seconds=480.7 roundtrip=OK
+# libzstd nativo 1.5.7
+RESULT dataset=HML_PDVOMNI_4.5.21.0.tar->HML_PDVOMNI_4.5.22.0.tar api=native quality=19 hashLog=0 ldm=2 windowLog=31 baseBytes=1345354752 targetBytes=1345342976 deltaBytes=634716389 pct=47.1788 seconds=411.6 roundtrip=OK
