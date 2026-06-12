@@ -24,11 +24,11 @@ exposes — can be set).
    default tables collapses to 9.35% on the linux pair and 47.18% on a production pair; with
    `hashLog = 28` it recovers to 0.11% **without LDM** (`expE2`). The knob makes prefix referencing
    robust independently of whether LDM can find the matches.
-4. **`hashLog` specifically unlocks the bt strategies**: at q15 it changes nothing
-   (2,737,868 → 2,728,695 bytes on the linux pair), consistent with the truncation
+4. **`hashLog` specifically unlocks the bt strategies**: at q15 it changes essentially nothing
+   (2,737,868 → 2,728,695 bytes on the linux pair, −0.3%), consistent with the truncation
    `1 << MAX(hashLog+3, chainLog+1)` applying under bt match-finders.
 5. The managed wrapper is a faithful pass-through: native runs at default parameters produce
-   **byte-identical** deltas to the managed API (`expH` vs `expC`).
+   **byte-identical** deltas to the managed API (delta SHA-256 match at q19 and q15, `expJ`).
 
 Headline table — `linux-6.12.92.tar → linux-6.12.93.tar` (1,548,513,280 → 1,548,564,480 bytes,
 the same pair used by the maintainer in the issue thread; `WindowLog=31`, LDM on, single thread):
@@ -87,8 +87,8 @@ this repository.
 ## Methodology notes
 
 - `WindowLog` = smallest value covering prefix+input, capped at zstd's max (31). For the 1.5 GB
-  pairs that cap is hit; an attached prefix stays referenceable and every delta decodes correctly
-  with `refPrefix` (verified).
+  pairs that cap is hit; matches at the whole-file-aligned distance (≈ the prefix length) remain
+  reachable throughout, and every delta decodes correctly with `refPrefix` (verified).
 - LDM (`EnableLongDistanceMatching`) is on in all runs unless stated; note the managed `false`
   cannot force-disable it at `windowLog ≥ 27` (native `0` = auto), which is why LDM-off controls
   use the native path with value `2` (`ZSTD_ps_disable`).

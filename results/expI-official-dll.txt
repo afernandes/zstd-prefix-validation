@@ -1,0 +1,18 @@
+# libzstd nativo 1.5.7
+RESULT dataset=linux-6.12.92.tar->linux-6.12.93.tar api=native quality=15 hashLog=0 ldm=1 windowLog=31 baseBytes=1548513280 targetBytes=1548564480 deltaBytes=2737868 pct=0.1768 seconds=14.0 roundtrip=OK
+# libzstd nativo 1.5.7
+RESULT dataset=linux-6.12.92.tar->linux-6.12.93.tar api=native quality=19 hashLog=0 ldm=1 windowLog=31 baseBytes=1548513280 targetBytes=1548564480 deltaBytes=1573757 pct=0.1016 seconds=193.8 roundtrip=OK
+# libzstd nativo 1.5.7
+RESULT dataset=linux-6.12.92.tar->linux-6.12.93.tar api=native quality=19 hashLog=28 ldm=1 windowLog=31 baseBytes=1548513280 targetBytes=1548564480 deltaBytes=1387510 pct=0.0896 seconds=496.5 roundtrip=OK
+# libzstd nativo 1.5.7
+RESULT dataset=linux-6.12.92.tar->linux-6.12.93.tar api=native quality=15 hashLog=28 ldm=1 windowLog=31 baseBytes=1548513280 targetBytes=1548564480 deltaBytes=2728695 pct=0.1762 seconds=253.7 roundtrip=OK
+# libzstd nativo 1.5.7
+RESULT dataset=linux-6.12.92.tar->linux-6.12.93.tar api=native quality=19 hashLog=0 ldm=2 windowLog=31 baseBytes=1548513280 targetBytes=1548564480 deltaBytes=144721459 pct=9.3455 seconds=508.2 roundtrip=OK
+# libzstd nativo 1.5.7
+RESULT dataset=linux-6.12.92.tar->linux-6.12.93.tar api=native quality=19 hashLog=28 ldm=2 windowLog=31 baseBytes=1548513280 targetBytes=1548564480 deltaBytes=1757071 pct=0.1135 seconds=496.0 roundtrip=OK
+# native libzstd 1.5.7
+RESULT dataset=linux-6.12.92.tar->linux-6.12.93-rev.tar api=native quality=19 hashLog=28 ldm=1 windowLog=31 baseBytes=1548513280 targetBytes=1548561408 deltaBytes=1951729 pct=0.1260 seconds=579.0 roundtrip=OK deltaSha=c129ae03c96aae5c692ea3db21144b853d4a4d68b2bac6ab9c838132c7ecf8b3
+# native libzstd 1.5.7
+RESULT dataset=HML_PDVOMNI_4.5.21.0.tar->HML_PDVOMNI_4.5.22.0.tar api=native quality=19 hashLog=28 ldm=1 windowLog=31 baseBytes=1345354752 targetBytes=1345342976 deltaBytes=202448 pct=0.0150 seconds=417.1 roundtrip=OK deltaSha=da471bb9ef537047e92581e5ac4a78905cff0d08d8e40e97f97e6262124d2f97
+# native libzstd 1.5.7
+RESULT dataset=HML_PDVOMNI_4.5.21.0.tar->HML_PDVOMNI_4.5.22.0.tar api=native quality=19 hashLog=0 ldm=2 windowLog=31 baseBytes=1345354752 targetBytes=1345342976 deltaBytes=634716389 pct=47.1788 seconds=486.0 roundtrip=OK deltaSha=02901c35b7bcd7fe219bc722a7692816b010fbdfee8b2c4a0daec7b4f05aff12

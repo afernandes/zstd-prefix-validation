@@ -14,11 +14,13 @@ Every number cited in the dotnet/runtime#129214 discussion traces to a line in t
 | `expE2-controls.txt` | reversed-tar runs (q3/q15/q19/native+`hashLog`) + LDM-off controls (`ldm=2`) on both pairs | see `run-experiments.ps1` |
 | `expF-wlog31.txt` | synthetic q19 with `windowLog` forced to 31 (96/160/320 MiB) — rules out windowLog as the cliff variable | `matrix 19 96,160 31` etc. |
 | `expG-selfslice.txt` | self-delta with REAL content slices (96/160 MiB of `linux-6.12.92.tar`, q19) — isolates content as the variable | `selfslice …` |
-| `expH-native-controls.txt` | native q19/q15 at default parameters, LDM on — byte-identical to the managed runs | `real … native 19 0 1` etc. |
-| `expI-official-dll.txt` | full re-run of every native configuration against the official zstd v1.5.7 release `libzstd.dll` (SHA in root README) | see `run-experiments.ps1` |
+| `expH-native-controls.txt` | native q19/q15 at default parameters, LDM on — identical delta sizes to the managed runs | `real … native 19 0 1` etc. |
+| `expI-official-dll.txt` | full re-run of every native configuration against the official zstd v1.5.7 release `libzstd.dll` (SHA in root README) — identical delta sizes across the board | same `real … native …` configs as the C/E2/H native rows |
+| `expJ-delta-hashes.txt` | managed vs native byte-identity: q19 and q15 on the linux pair with `deltaSha` (SHA-256 of the delta stream) — hashes match across APIs | `real … managed 19` / `native 19 0 1` etc. |
 
 Build provenance: `expC`/`expD` were produced by an earlier probe revision whose `RESULT` line did
 not yet include the `ldm=` field (semantics identical, LDM on); `expA`/`expB` predate the `wlog=`
-field on `MATRIX` lines. All other files come from the current source. The native runs in
-`expC`–`expH` used a non-release libzstd 1.5.7 build; `expI` re-validates every native
-configuration against the official release binary.
+field on `MATRIX` lines; the `deltaSha=` field (SHA-256 of the delta stream) exists from `expJ`
+and the last three `expI` lines on. All other files come from the current source. The native runs
+in `expC`–`expH` used a non-release libzstd 1.5.7 build; `expI` re-validates every native
+configuration against the official release binary (identical delta sizes in all 9 configurations).

@@ -37,7 +37,7 @@ public class ClaimTests
         var prefix = new byte[96 << 20];
         new Random(42).NextBytes(prefix);
         var target = (byte[])prefix.Clone();
-        var (delta, _, roundTrip, _) = Experiments.RealNative(prefix, target, quality: 19, hashLog: 27);
+        var (delta, _, roundTrip, _, _) = Experiments.RealNative(prefix, target, quality: 19, hashLog: 27);
         double pct = delta * 100.0 / target.Length;
         Assert.True(roundTrip, "native round-trip failed");
         Assert.True(pct < 0.05, $"q19+hashLog27 should index the whole prefix (expected ~0.008%), got {pct:F3}%");

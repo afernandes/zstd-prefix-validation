@@ -54,8 +54,8 @@ public static class Experiments
         return (written * 100.0 / input.Length, sw.Elapsed.TotalSeconds);
     }
 
-    /// <summary>Managed patch-from on real files, round-trip verified via SHA-256.</summary>
-    public static (long DeltaBytes, double CompressSeconds, bool RoundTrip, int WindowLog) RealManaged(
+    /// <summary>Managed patch-from on real files, round-trip verified via SHA-256. DeltaSha = SHA-256 of the delta itself (for cross-API byte-identity checks).</summary>
+    public static (long DeltaBytes, double CompressSeconds, bool RoundTrip, int WindowLog, string DeltaSha) RealManaged(
         byte[] baseData, byte[] target, int quality, bool ldm = true)
     {
         int windowLog = ComputeWindowLog((long)baseData.Length + target.Length);
@@ -84,11 +84,12 @@ public static class Experiments
             && restoredLen == target.Length
             && SHA256.HashData(restored).AsSpan().SequenceEqual(SHA256.HashData(target));
 
-        return (written, sw.Elapsed.TotalSeconds, roundTrip, windowLog);
+        string deltaSha = Convert.ToHexStringLower(SHA256.HashData(dest.AsSpan(0, written)));
+        return (written, sw.Elapsed.TotalSeconds, roundTrip, windowLog, deltaSha);
     }
 
     /// <summary>Patch-from on native libzstd (refPrefix + compressStream2), with optional hashLog — the knob from the API proposal.</summary>
-    public static unsafe (long DeltaBytes, double CompressSeconds, bool RoundTrip, int WindowLog) RealNative(
+    public static unsafe (long DeltaBytes, double CompressSeconds, bool RoundTrip, int WindowLog, string DeltaSha) RealNative(
         byte[] baseData, byte[] target, int quality, int hashLog, int ldmSwitch = 1)
     {
         int windowLog = ComputeWindowLog((long)baseData.Length + target.Length);
@@ -124,7 +125,8 @@ public static class Experiments
 
             sw.Stop();
             bool roundTrip = VerifyNative(baseData, target, dest, written);
-            return (written, sw.Elapsed.TotalSeconds, roundTrip, windowLog);
+            string deltaSha = Convert.ToHexStringLower(SHA256.HashData(dest.AsSpan(0, (int)written)));
+            return (written, sw.Elapsed.TotalSeconds, roundTrip, windowLog, deltaSha);
         }
         finally
         {

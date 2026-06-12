@@ -56,20 +56,21 @@ switch (args[0])
         double secs;
         bool roundTrip;
         int windowLog;
+        string deltaSha;
         if (api == "managed" || api == "managed-noldm")
         {
-            (delta, secs, roundTrip, windowLog) = Experiments.RealManaged(baseData, target, quality, ldm: api == "managed");
+            (delta, secs, roundTrip, windowLog, deltaSha) = Experiments.RealManaged(baseData, target, quality, ldm: api == "managed");
         }
         else
         {
             Console.WriteLine($"# native libzstd {Native.Version()}");
-            (delta, secs, roundTrip, windowLog) = Experiments.RealNative(baseData, target, quality, hashLog, ldmSwitch);
+            (delta, secs, roundTrip, windowLog, deltaSha) = Experiments.RealNative(baseData, target, quality, hashLog, ldmSwitch);
         }
 
         Console.WriteLine(
             $"RESULT dataset={dataset} api={api} quality={quality} hashLog={hashLog} ldm={ldmSwitch} windowLog={windowLog} " +
             $"baseBytes={baseData.Length} targetBytes={target.Length} deltaBytes={delta} " +
-            $"pct={delta * 100.0 / target.Length:F4} seconds={secs:F1} roundtrip={(roundTrip ? "OK" : "FAIL")}");
+            $"pct={delta * 100.0 / target.Length:F4} seconds={secs:F1} roundtrip={(roundTrip ? "OK" : "FAIL")} deltaSha={deltaSha}");
         return roundTrip ? 0 : 2;
     }
 
@@ -85,8 +86,8 @@ switch (args[0])
         }
 
         var copy = (byte[])slice.Clone();
-        var (d, s, rt, w) = Experiments.RealManaged(slice, copy, q);
-        Console.WriteLine($"RESULT dataset=selfslice:{Path.GetFileName(args[1])}:{mi}Mi api=managed quality={q} hashLog=0 ldm=1 windowLog={w} baseBytes={slice.Length} targetBytes={copy.Length} deltaBytes={d} pct={d * 100.0 / copy.Length:F4} seconds={s:F1} roundtrip={(rt ? "OK" : "FAIL")}");
+        var (d, s, rt, w, dsha) = Experiments.RealManaged(slice, copy, q);
+        Console.WriteLine($"RESULT dataset=selfslice:{Path.GetFileName(args[1])}:{mi}Mi api=managed quality={q} hashLog=0 ldm=1 windowLog={w} baseBytes={slice.Length} targetBytes={copy.Length} deltaBytes={d} pct={d * 100.0 / copy.Length:F4} seconds={s:F1} roundtrip={(rt ? "OK" : "FAIL")} deltaSha={dsha}");
         return rt ? 0 : 2;
     }
 
